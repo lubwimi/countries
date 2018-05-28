@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+    
+    {% block content %}
+        
+        <div style="margin-top: 1%;">
+            <span style="float: left; margin-left: 10%; margin-top: 2%;"><a href="{% url 'countries' %}">Countries</a></span>
+            
+            {% include 'navbar.html' %}
+        </div><br />
+        
+        {% csrf_token %}
+        <strong style="float: right;"><input type="text" id="search" placeholder="search for country" class="btn btn-lg btn-default" /></strong>
+        
+        <ul id="search-results">
+            
+        </ul><br />
+        
+        <div style="margin-top: 5%;">
+            <table style="border: dashed; margin-left: 20%;">
+                <tr style="text-align: center; border: dashed;">
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>Country</strong></th>
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>Continent</strong></th>
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>Capital</strong></th>
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>Language</strong></th>
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>Habitants</strong></th>
+                    <th style="text-align: center; border: dashed; color: #00FF00;"><strong>square_kilometers</strong></th>
+                    <th style="text-align: center; border: dashed;"><strong>Delete</strong></th>
+                </tr>
+                
+                {% for country in countries  %}
+                    <tr style="text-align: center; border: dashed;">
+                        <td style="text-align: center; border: solid;">{{ country.country|upper }}</td>
+                        <td style="text-align: center; border: solid;">{{ country.continent|upper }}</td>
+                        <td style="text-align: center; border: solid;">{{ country.capital }}</td>
+                        <td style="text-align: center; border: solid;">{{ country.language }}</td>
+                        <td style="text-align: center; border: solid;">{{ country.habitants }}</td>
+                        <td style="text-align: center; border: solid;">{{ country.square_kilometers }}</td>
+                        <td><a href="/country/delete/{{country.id}}">X</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+        <div class="pagination" style="text-align: center;">
+            <span class="step-links">
+                {% if countries.has_previous %}
+                    <h3><a href="?page={{ countries.previous_page_number }}">previous</a></h3>
+                {% endif %}
+                
+                <span class="current">
+                    <h3>Page {{ countries.number }} of {{ countries.paginator.num_pages }}.</h3>
+                </span>
+                
+                {% if countries.has_next %}
+                    <h3><a href="?page={{ countries.next_page_number }}">next</a></h3>
+                {% endif %}
+            </span>
+        </div>
+        
+        <!--<div class="mastfoot">
+            <div class="inner">
+              <p>Cover CV for <a href="http://sylvain.nu"><strong style="text-decoration: underline;">Sylvain.Nu</strong></a>, by <a href="http://patmos.se"><strong style="text-decoration: underline;">@SylvainLubwimi</strong></a>.</p>
+            </div>
+        </div>-->
+       
+   
+    {% endblock %}

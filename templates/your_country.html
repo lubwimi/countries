@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+
+    <div style="margin-top: 1%;">
+        <span style="float: left; margin-left: 10%; margin-top: 2%;"><a href="{% url 'countries' %}">Countries</a></span>
+        
+        {% include 'navbar.html' %}
+    </div><br />
+    
+    {% csrf_token %}
+    <strong style="float: right;"><input type="text" id="search" placeholder="search for country" class="btn btn-lg btn-default" /></strong>
+    
+    <ul id="search-results">
+        
+    </ul><br />
+    
+    <div>
+        <h3>Country: <strong style="color: #00FF00;">{{ your_country.country }}</strong></h3>
+        <h3>Continent: <strong style="color: #00FF00;">{{ your_country.continent }}</strong></h3>
+        <h3>Capital: <strong style="color: #00FF00;">{{ your_country.capital }}</strong></h3>
+        <h3>Language: <strong style="color: #00FF00;">{{ your_country.language }}</strong></h3>
+        <h3>Habitants: <strong style="color: #00FF00;">{{ your_country.habitants }}</strong></h3>
+        <h3>square_kilometers: <strong style="color: #00FF00;">{{ your_country.square_kilometers }}</strong></h3>
+    </div>
+    
+{% endblock %}
+
+
+
+

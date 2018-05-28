@@ -1,0 +1,12 @@
+{% if countries.count > 0 %}
+
+    {% for country in countries %}
+        <br /><li style="float: left;"><a href="/get/{{ country.id }}">{{ country.country }}</a></li><br />
+    {% endfor %}
+
+{% else %}
+
+    <li>None to show!</li>
+
+{% endif %}
+

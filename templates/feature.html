@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div style="margin-top: 1%;">
+      <h3 style="float: left; margin-left: 10%;"><a href="{% url 'countries' %}">Countries</a></h3>
+      
+      {% include 'navbar.html' %}
+    </div><br />
+    
+    <div style="margin-top: 10%;">
+        <strong style="font-size: larger; color: #00FF00;">Use this form for entering a new country to the list
+            <a href="{% url 'countries' %}" style="color: #FF0000;">Countries</a></strong><br />
+        
+        <form method="post" action="/feature/">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <!--<input type="submit" name="submit" value="Submit" />-->
+            <br /><button class="btn btn-success" type="submit">
+                Register Country
+            </button>                                                                                                   
+        </form>
+    </div>
+    
+    <div class="mastfoot">
+      <div class="inner">
+        <p style="float: right;">Cover CV for <a href="http://sylvain.nu"><strong style="text-decoration: underline;">Sylvain.Nu</strong></a>, by <a href="http://patmos.se"><strong style="text-decoration: underline;">@SylvainLubwimi</strong></a>.</p>
+      </div>
+    </div>
+
+{% endblock %}
+
+

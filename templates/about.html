@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+    <div style="margin-top: 1%;">
+        <span style="float: left; margin-left: 10%; margin-top: 2%;"><a href="{% url 'countries' %}">Countries</a></span>
+        
+        {% include 'navbar.html' %}
+    </div><br />
+    
+    {% csrf_token %}
+    <strong style="float: right;"><input type="text" id="search" placeholder="search for country" class="btn btn-lg btn-default" /></strong>
+    
+    <ul id="search-results">
+        
+    </ul><br />
+    
+    <p>
+        
+        HOW MANY COUNTRIES?
+        
+        COUNTRIES OF EUROPE
+        COUNTRIES OF ASIA
+        COUNTRIES OF AFRICA
+        COUNTRIES OF NORTH AMERICA
+        COUNTRIES OF SOUTH AMERICA
+        COUNTRIES OF AUSTRALIA AND OCEANIA
+        UNION OF COUNTRIES
+        EUROPEAN UNION COUNTRIES
+        WORLD STATISTICS
+        WORLD'S LARGEST COUNTRIES
+        WORLD'S SMALLEST COUNTRIES
+        MOST POPULOUS COUNTRIES
+        WORLD'S RICHEST COUNTRIES? <br />
+        
+        <strong>THIS SITE CAN HELP YOU FOUNDING SOME ANSWERS TO THESE QUESTIONS!</strong>
+    </p>
+    
+    <h2><a href="countriesform" style="text-decoration: none;">Africa</a></h2>
+    
+    <img src="{{ MEDIA_URL }}africa.jpg" alt="Africa" />
+    
+    <div style="background-color: #999999;">
+        <h2><a href="countriesform" style="text-decoration: none;">Europe</a></h2>
+        
+        <img src="{{ MEDIA_URL }}europe.gif" alt="Africa" />
+        
+        <h2><a href="countriesform" style="text-decoration: none;">South America</a></h2>
+        
+        <img src="{{ MEDIA_URL }}south_america.jpg" alt="SouthAmerica" />
+        
+        <h2><a href="countriesform" style="text-decoration: none;">North America</a></h2>
+        
+        <img src="{{ MEDIA_URL }}north_america.gif" alt="NorthAmerica" />
+        
+        <h2><a href="countriesform" style="text-decoration: none;">Australia And Oceania</a></h2>
+        
+        <img src="{{ MEDIA_URL }}australia.jpg" alt="Australia" />
+        
+        <h2><a href="countriesform" style="text-decoration: none;">Asia</a></h2>
+        
+        <img src="{{ MEDIA_URL }}asia.jpeg" alt="Asia" />
+        
+        <h2><a href="countriesform" style="text-decoration: none;">Asia Flags</a></h2>
+        
+        <img src="{{ MEDIA_URL }}asia_flags.jpg" alt="Asia_flags" /><br />
+        
+        <h6 style="float: right;"><a href="{% url 'about' %}">About</a></h6>
+    
+    </div>
+{% endblock %}

@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}Discover Countries{% endblock %}
+    
+{% block content %}
+
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+  
+            <div class="cover-container">
+    
+              <div class="masthead clearfix">
+                <div class="inner">
+                  <span class="masthead-brand"><a href="{% url 'countries' %}">Countries</a></span>
+                  
+                  {% include 'navbar.html' %}
+                </div>
+              </div>
+              
+              <div class="inner cover">
+                <!--<h2>{{ greeting }}</h2>-->
+                <h3 class="cover-heading">Discover</h3>
+                <p class="lead">names, capitals, languages, and more about countries. Read and enjoy as well you can. Here you can learn something about countries in the world.</p>
+                <p class="lead">
+                  <a href="{% url 'countries' %}" class="btn btn-lg btn-default">Learn more</a>
+                </p>
+              </div>
+            
+    
+              <div class="mastfoot">
+                <div class="inner">
+                  <p>Cover CV for <a href="http://sylvain.nu"><strong style="text-decoration: underline;">Sylvain.Nu</strong></a>, by <a href="http://patmos.se"><strong style="text-decoration: underline;">@SylvainLubwimi</strong></a>.</p>
+                </div>
+              </div>
+    
+          </div>
+    
+      </div>
+
+    </div>
+   
+   <div style="background-color: #999999;">
+        <p>
+            <strong style="font-size: larger; color: #00FF00;">The all 197 independent countries of the world in alphabetical order :</strong><br />
+                A<br />
+            Afghanistan
+            Albania
+            Algeria
+            Andorra
+            Angola
+            Antigua and Barbuda
+            Argentina
+            Armenia
+            Australia
+            Austria
+            Azerbaijan
+            <br />B<br />
+            Bahamas
+            Bahrain
+            Bangladesh
+            Barbados
+            Belarus
+            Belgium
+            Belize
+            Benin
+            Bhutan
+            Bolivia
+            Bosnia and Herzegovina
+            Botswana
+            Brazil
+            Brunei
+            Bulgaria
+            Burkina Faso
+            Burundi
+            <br />C<br />
+            Cabo Verde
+            Cambodia
+            Cameroon
+            Canada
+            Central African Republic
+            Chad
+            Chile
+            China
+            Colombia
+            Comoros
+            Democratic Republic of the Congo
+            Republic of the Congo
+            Costa Rica
+            Cote d'Ivoire
+            Croatia
+            Cuba
+            Cyprus
+            Czech Republic
+            <br />D<br />
+            Denmark
+            Djibouti
+            Dominica
+            Dominican Republic
+            <br />E<br />
+            Ecuador
+            Egypt
+            El Salvador
+            Equatorial Guinea
+            Eritrea
+            Estonia
+            Eswatini (formerly Swaziland)
+            Ethiopia
+            <br />F<br />
+            Fiji
+            Finland
+            France
+            <br />G<br />
+            Gabon
+            Gambia
+            Georgia
+            Germany
+            Ghana
+            Greece
+            Grenada
+            Guatemala
+            Guinea
+            Guinea-Bissau
+            Guyana
+            <br />H<br />
+            Haiti
+            Honduras
+            Hungary
+            <br />I<br />
+            Iceland
+            India
+            Indonesia
+            Iran
+            Iraq
+            Ireland
+            Israel
+            Italy
+            <br />J<br />
+            Jamaica
+            Japan
+            Jordan
+            <br />K<br />
+            Kazakhstan
+            Kenya
+            Kiribati
+            Kosovo
+            Kuwait
+            Kyrgyzstan
+            <br />L<br />
+            Laos
+            Latvia
+            Lebanon
+            Lesotho
+            Liberia
+            Libya
+            Liechtenstein
+            Lithuania
+            Luxembourg
+            <br />M<br />
+            Macedonia (FYROM)
+            Madagascar
+            Malawi
+            Malaysia
+            Maldives
+            Mali
+            Malta
+            Marshall Islands
+            Mauritania
+            Mauritius
+            Mexico
+            Micronesia
+            Moldova
+            Monaco
+            Mongolia
+            Montenegro
+            Morocco
+            Mozambique
+            Myanmar (formerly Burma)
+            <br />N<br />
+            Namibia
+            Nauru
+            Nepal
+            Netherlands
+            New Zealand
+            Nicaragua
+            Niger
+            Nigeria
+            North Korea
+            Norway
+            <br />O<br />
+            Oman
+            <br />P<br />
+            Pakistan
+            Palau
+            Palestine
+            Panama
+            Papua New Guinea
+            Paraguay
+            Peru
+            Philippines
+            Poland
+            Portugal
+            <br />Q<br />
+            Qatar
+            <br />R<br />
+            Romania
+            Russia
+            Rwanda
+            <br />S<br />
+            Saint Kitts and Nevis
+            Saint Lucia
+            Saint Vincent and the Grenadines
+            Samoa
+            San Marino
+            Sao Tome and Principe
+            audi Arabia
+            Senegal
+            Serbia
+            Seychelles
+            Sierra Leone
+            Singapore
+            Slovakia
+            Slovenia
+            Solomon Islands
+            Somalia
+            South Africa
+            South Korea
+            South Sudan
+            Spain
+            Sri Lanka
+            Sudan
+            Suriname
+            Sweden
+            Switzerland
+            Syria
+            <br />T<br />
+            Taiwan
+            Tajikistan
+            Tanzania
+            Thailand
+            Timor-Leste
+            Togo
+            Tonga
+            Trinidad and Tobago
+            Tunisia
+            Turkey
+            Turkmenistan
+            Tuvalu
+            <br />U<br />
+            Uganda
+            Ukraine
+            United Arab Emirates
+            United Kingdom
+            United States of America
+            Uruguay
+            Uzbekistan
+            <br />V<br />
+            Vanuatu
+            Vatican City (Holy See)
+            Venezuela
+            Vietnam
+            <br />Y<br />
+            Yemen
+            <br />Z<br />
+            Zambia
+            Zimbabwe<br />
+        </p>
+    
+    <strong style="font-size: larger; color: #00FF00;">Enter a new country to the list <a href="{% url 'countries' %}" style="color: #FF0000;">Countries</a></strong><br />
+    
+    <form method="post" action="/home/">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <!--<input type="submit" name="submit" value="Submit" />-->
+        <br /><button class="btn btn-primary" type="submit" >
+            Register Country
+        </button>                                                                                                   
+    </form>
+    
+        
+    <h6 style="float: right;"><a href="{% url 'home' %}">Home</a></h6>
+        
+        <!--<h2><a href="{% url 'about' %}">About</a></h2>-->
+    
+</div>   
+    
+{% endblock %}
